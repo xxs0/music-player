@@ -15,6 +15,9 @@ footer文字 #d33a31
 搜索框背景色 #ebecec
 热门搜索 边框色000 0.1
 */
+
+/*顶部公共区域CSS*/
+
 .fixed-wrap {
     position: fixed;
     top: 0;
@@ -57,7 +60,6 @@ section.download-app >a:after {
     border: 1px solid;
     border-radius: 37.5%/100%;
 }
-
 section.global-tabslist{
     background: #ffffff;
 }
@@ -101,6 +103,9 @@ section.tabs>div {
 section.tabs>div.active {
     display: block;
 }
+
+/*推荐音乐区域CSS*/
+
 section.tabs .recommend-music {
     padding-top: 20px;
 }
@@ -121,7 +126,6 @@ section.tabs .recommend-music h2:after {
     top: 0;
     left: 0;
 }
-
 section.tabs .recommend-music ul.songs-list{
     display: flex;
     flex-wrap: wrap;
@@ -153,10 +157,8 @@ section.tabs .recommend-music ul.songs-list li p {
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
-
 .songs {
     padding-left: 10px;
-
 }
 .songs li {
     padding: 10px 0;
@@ -177,13 +179,11 @@ section.tabs .recommend-music ul.songs-list li p {
 }
 .songs div .song-name {
     font-size:17px;
-
 }
 .songs div .song-author {
     font-size:12px;
     color: #888888;
 }
-
 .songs div .playicon {
     position: absolute;
     top: 50%;
@@ -191,12 +191,10 @@ section.tabs .recommend-music ul.songs-list li p {
     font-size: 12px;
     transform: translateY(-50%);
 }
-
 .playicon .icon-play {
-    width: 22px;
-    height: 22px;
+    width: 26px;
+    height: 26px;
 }
-
 footer {
     padding: 1px 0 19px 0;
     background: url(//i.loli.net/2017/10/15/59e31a4d47ed8.png) no-repeat;
@@ -234,7 +232,6 @@ footer .openapp:after {
     border: 1px solid #d43c33;
     border-radius: 38px;
 }
-
 footer .copyright {
     font-size: 12px;
     color: #888;
@@ -242,7 +239,8 @@ footer .copyright {
 }
 
 
-/*--------------*/
+/*热歌榜区域CSS*/
+
 section.tabs .hot-tops .hot-band {
     display: flex;
     flex-direction: column;
@@ -263,20 +261,17 @@ section.tabs .hot-tops .hot-band .hottime {
     transform: scale(.91);
     transform-origin: left top;
 }
-
 .top-list .song-item >a {
     margin-left: 10px;
     display: flex;
     flex-direction: row;
     align-items: center;
 }
-
 .hot-index {
     width: 28px;
     font-size: 17px;
     color: #999;
 }
-
 .song-item .song-info {
     position: relative;
     padding: 6px 0;
@@ -291,7 +286,6 @@ section.tabs .hot-tops .hot-band .hottime {
     font-size:12px;
     color: #888888;
 }
-
 .song-item .song-info .playicon {
     position: absolute;
     top: 50%;
@@ -299,7 +293,6 @@ section.tabs .hot-tops .hot-band .hottime {
     font-size: 12px;
     transform: translateY(-50%);
 }
-
 .playicon .icon-play {
     width: 22px;
     height: 22px;
@@ -315,4 +308,98 @@ section.tabs .hot-tops .hot-band .hottime {
     padding: 20px 14px 21px 0;
     background: url('./more.svg') 100% no-repeat;
     background-size: 7px 12px;
+}
+
+/*搜索区域CSS规则*/
+
+.search-page {
+
+}
+.search form {
+    padding: 15px 10px;
+    position: relative;
+}
+.search form:after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: #eeeff0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.search form .search-wrapper {
+    position: relative;
+    padding: 0 30px;
+    background-color: #ebecec;
+    border-radius: 30px;
+}
+.search-wrapper svg {
+    position: absolute;
+    top: 50%;
+    margin: 0 8px;
+    transform: translateY(-50%);
+}
+.search-wrapper .icon-search {
+    width: 13px;
+    height: 13px;
+    left: 0;
+}
+.search-wrapper .icon-closecircled {
+    width: 14px;
+    height: 14px;
+    right: 0;
+}
+.search form input {
+    border: 0;
+    width: 100%;
+    height: 28px;
+    line-height: 18px;
+    background: transparent;
+    position: relative;
+}
+.search form input:focus {
+    outline: none;
+}
+.search form label {
+    position: absolute;
+    left: 30px;
+    top: 5px;
+    font-size: 14px;
+    color: #c9c9c9;
+    background: transparent;
+    pointer-events: none;
+}
+.hot-suggestion {
+    padding: 14px 10px 0 10px;
+}
+.hot-suggestion  h3 {
+    font-size:12px;
+    line-height: 12px;
+    color: #666;
+}
+.hot-suggestion .suggestion {
+    margin: 10px 0 7px;
+}
+.hot-suggestion .suggestion .item {
+    display: inline-block;
+    margin: 0 10px 10px 0;
+    padding: 0 15px;
+    font-size:14px;
+    height: 32px;
+    line-height: 32px;
+    position: relative;
+
+}
+.hot-suggestion .suggestion .item:after {
+    content: '';
+    display: block;
+    width: 100%;
+    height:100%;
+    position: absolute;
+    top:0;
+    left: 0;
+    border:1px solid #d3d4da;
+    border-radius: 32px;
 }
