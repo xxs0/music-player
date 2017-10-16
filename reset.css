@@ -1,3 +1,17 @@
 * {margin: 0; padding: 0; box-sizing: border-box;}
+*:before, *:after {box-sizing: border-box;}
 ul,ol{list-style: none;}
 a {text-decoration: none; color: inherit;}
+body {
+    background: #FCFCFD;
+    font: 14px/1.5 Helvetica,sans-serif;
+    color: #333;
+}
+h1,h2,h3,h4,h5,h6 {font-weight: normal}
+
+.icon {
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
