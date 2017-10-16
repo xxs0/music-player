@@ -240,3 +240,79 @@ footer .copyright {
     color: #888;
     transform: scale(.75);
 }
+
+
+/*--------------*/
+section.tabs .hot-tops .hot-band {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 0 15px 20px;
+    background: url("//i.loli.net/2017/10/16/59e3fd0faa8f2.jpg");
+    background-size: contain;
+}
+section.tabs .hot-tops .hot-band .hoticon {
+    width: 142px;
+    height: 67px;
+    background: url("//i.loli.net/2017/10/16/59e3fbd502129.png") no-repeat -24px -30px;
+    background-size: 166px 97px;
+}
+section.tabs .hot-tops .hot-band .hottime {
+    margin-top: 10px;
+    color: hsla(0,0%,100%,.8);
+    font-size: 12px;
+    transform: scale(.91);
+    transform-origin: left top;
+}
+
+.top-list .song-item >a {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.hot-index {
+    width: 28px;
+    font-size: 17px;
+    color: #999;
+}
+
+.song-item .song-info {
+    position: relative;
+    padding: 6px 0;
+    width: 100%;
+    border-bottom: 1px solid #efeff0;
+}
+.song-item .song-info .song-name {
+    font-size:17px;
+
+}
+.song-item .song-info .song-author {
+    font-size:12px;
+    color: #888888;
+}
+
+.song-item .song-info .playicon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    font-size: 12px;
+    transform: translateY(-50%);
+}
+
+.playicon .icon-play {
+    width: 22px;
+    height: 22px;
+}
+.hotmore {
+    text-align: center;
+}
+.hotmore span {
+    display: inline-block;
+    color: #999;
+    font-size:14px;
+    line-height: 14px;
+    padding: 20px 14px 21px 0;
+    background: url('./more.svg') 100% no-repeat;
+    background-size: 7px 12px;
+}
