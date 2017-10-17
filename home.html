@@ -66,39 +66,45 @@
         <ul class="songs-list">
             <li>
                 <div>
-                    <img src="//ooo.0o0.ooo/2017/10/12/59df3f3be5eff.jpeg" alt="歌单封面">
+                    <img src="//i.loli.net/2017/10/17/59e4f3476de56.jpg" alt="歌单封面" />
+                    <span class="u-earp"></span>
+                </div>
+                <p>有些歌听不得丶就像回不去的从前！</p>
+            </li>
+            <li>
+                <div>
+                    <img src="//i.loli.net/2017/10/17/59e4f38161ac0.jpg" alt="歌单封面" />
+                    <span class="u-earp"></span>
+                </div>
+                <p>我走了，去下一站喜欢下一个人了</p>
+            </li>
+            <li>
+                <div>
+                    <img src="//i.loli.net/2017/10/17/59e4f36d64b1c.jpg" alt="歌单封面" />
+                    <span class="u-earp"></span>
+                </div>
+                <p>美好暗恋 | 淡淡空灵的慵懒 妖娆极致</p>
+            </li>
+            <li>
+                <div>
+                    <img src="//i.loli.net/2017/10/17/59e4f2f882007.jpg" alt="歌单封面" />
+                    <span class="u-earp"></span>
                 </div>
                 <p>『华语』最好的时光，只为遇见最美的你</p>
             </li>
             <li>
                 <div>
-                    <img src="//ooo.0o0.ooo/2017/10/12/59df3f3be5eff.jpeg" alt="歌单封面">
+                    <img src="//i.loli.net/2017/10/17/59e4f3d7c5495.jpg" alt="歌单封面" />
+                    <span class="u-earp"></span>
                 </div>
-                <p>『华语』最好的时光，只为遇见最美的你</p>
+                <p>电音史上最伟大的250首EDM音乐作品</p>
             </li>
             <li>
                 <div>
-                    <img src="//ooo.0o0.ooo/2017/10/12/59df3f3be5eff.jpeg" alt="歌单封面">
+                    <img src="//i.loli.net/2017/10/17/59e4f3bc67947.jpg" alt="歌单封面" />
+                    <span class="u-earp"></span>
                 </div>
-                <p>『华语』最好的时光，只为遇见最美的你</p>
-            </li>
-            <li>
-                <div>
-                    <img src="//ooo.0o0.ooo/2017/10/12/59df3f3be5eff.jpeg" alt="歌单封面">
-                </div>
-                <p>『华语』最好的时光，只为遇见最美的你</p>
-            </li>
-            <li>
-                <div>
-                    <img src="//ooo.0o0.ooo/2017/10/12/59df3f3be5eff.jpeg" alt="歌单封面">
-                </div>
-                <p>『华语』最好的时光，只为遇见最美的你</p>
-            </li>
-            <li>
-                <div>
-                    <img src="//ooo.0o0.ooo/2017/10/12/59df3f3be5eff.jpeg" alt="歌单封面">
-                </div>
-                <p>『华语』最好的时光，只为遇见最美的你</p>
+                <p>古风殇恋｜待到红颜消 杳杳无归期</p>
             </li>
         </ul>
         <h2>最新音乐</h2>
@@ -311,6 +317,7 @@
     </div>
 </section>
 <script src="vendors/jquery.min.js"></script>
+<script src="vendors/av-min.js"></script>
 <script src="//at.alicdn.com/t/font_441811_wn9iousemzmbcsor.js"></script>
 <script>
     var $tab = $('.global-tabslist>ul'),
@@ -321,6 +328,15 @@
         $li.addClass('active').siblings().removeClass('active')
         $tabItem.eq(index).show().siblings().hide()
     })
+
+    var APP_ID = 'FAJiplyOufNOXB2g99xL3DTU-gzGzoHsz';
+    var APP_KEY = 'sQkUW7anDbCfAyqDzVeL7F0N';
+
+    AV.init({
+        appId: APP_ID,
+        appKey: APP_KEY
+    });
+
 </script>
 </body>
 </html>
