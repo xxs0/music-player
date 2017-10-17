@@ -117,20 +117,20 @@
                 <div></div>
             </div>
             <!--<li>-->
-                <!--<div>-->
-                    <!--<h3 class="song-name">一生所爱</h3>-->
-                    <!--<p class="song-author">-->
-                        <!--<svg class="icon icon-sq" aria-hidden="true">-->
-                            <!--<use xlink:href="#icon-sq"></use>-->
-                        <!--</svg>-->
-                        <!--莫文蔚 - 天籟 - Studio Version-->
-                    <!--</p>-->
-                    <!--<a href="" class="playicon">-->
-                        <!--<svg class="icon icon-play" aria-hidden="true">-->
-                            <!--<use xlink:href="#icon-play"></use>-->
-                        <!--</svg>-->
-                    <!--</a>-->
-                <!--</div>-->
+            <!--<div>-->
+            <!--<h3 class="song-name">一生所爱</h3>-->
+            <!--<p class="song-author">-->
+            <!--<svg class="icon icon-sq" aria-hidden="true">-->
+            <!--<use xlink:href="#icon-sq"></use>-->
+            <!--</svg>-->
+            <!--莫文蔚 - 天籟 - Studio Version-->
+            <!--</p>-->
+            <!--<a href="" class="playicon">-->
+            <!--<svg class="icon icon-play" aria-hidden="true">-->
+            <!--<use xlink:href="#icon-play"></use>-->
+            <!--</svg>-->
+            <!--</a>-->
+            <!--</div>-->
             <!--</li>-->
         </ul>
         <footer>
@@ -186,23 +186,23 @@
                 <div></div>
             </div>
             <!--<li class="song-item">-->
-                <!--<a href="#">-->
-                    <!--<div class="hot-index">01</div>-->
-                    <!--<div class="song-info">-->
-                        <!--<p class="song-name">一生所爱</p>-->
-                        <!--<p class="song-author">-->
-                            <!--<svg class="icon icon-sq" aria-hidden="true">-->
-                                <!--<use xlink:href="#icon-sq"></use>-->
-                            <!--</svg>-->
-                            <!--莫文蔚 - 天籟 - Studio Version-->
-                        <!--</p>-->
-                        <!--<span class="playicon">-->
-                            <!--<svg class="icon icon-play" aria-hidden="true">-->
-                                <!--<use xlink:href="#icon-play"></use>-->
-                            <!--</svg>-->
-                        <!--</span>-->
-                    <!--</div>-->
-                <!--</a>-->
+            <!--<a href="#">-->
+            <!--<div class="hot-index">01</div>-->
+            <!--<div class="song-info">-->
+            <!--<p class="song-name">一生所爱</p>-->
+            <!--<p class="song-author">-->
+            <!--<svg class="icon icon-sq" aria-hidden="true">-->
+            <!--<use xlink:href="#icon-sq"></use>-->
+            <!--</svg>-->
+            <!--莫文蔚 - 天籟 - Studio Version-->
+            <!--</p>-->
+            <!--<span class="playicon">-->
+            <!--<svg class="icon icon-play" aria-hidden="true">-->
+            <!--<use xlink:href="#icon-play"></use>-->
+            <!--</svg>-->
+            <!--</span>-->
+            <!--</div>-->
+            <!--</a>-->
             <!--</li>-->
         </ol>
         <div class="hotmore">
@@ -216,9 +216,9 @@
                     <svg class="icon icon-search" aria-hidden="true">
                         <use xlink:href="#icon-search"></use>
                     </svg>
-                    <input type="text">
+                    <input type="text" id="search">
                     <label class="holder">搜索歌曲、歌手、专辑</label>
-                    <svg class="icon icon-closecircled" aria-hidden="true">
+                    <svg id="clearSearch" class="icon icon-closecircled" aria-hidden="true">
                         <use xlink:href="#icon-closecircled"></use>
                     </svg>
                 </div>
@@ -235,6 +235,12 @@
                 <li class="item"><a href="" class="link">陈奕迅</a></li>
                 <li class="item"><a href="" class="link">陈奕迅</a></li>
                 <li class="item"><a href="" class="link">陈奕迅</a></li>
+            </ul>
+        </div>
+        <div class="bestMatch">
+            <h3 class="title">最佳匹配</h3>
+            <ul class="searchResult">
+
             </ul>
         </div>
     </div>
@@ -259,11 +265,11 @@
         appId: APP_ID,
         appKey: APP_KEY
     });
-var $newSongs = $('ul.songs'),
-    $topSongs = $('ol.top-list'),
-    index = 1,
-    olIndex = '01',
-    query = new AV.Query('Songs');
+    var $newSongs = $('ul.songs'),
+        $topSongs = $('ol.top-list'),
+        index = 1,
+        olIndex = '01',
+        query = new AV.Query('Songs');
     query.find().then(function (results) {
         $('.line-scale-party').hide()
         console.log(results)
@@ -280,7 +286,7 @@ var $newSongs = $('ul.songs'),
                     + olIndex
                     + '</div><div class="song-info"><p class="song-name">'
                     + song.name
-                    +'</p><p class="song-author"><svg class="icon icon-sq" aria-hidden="true"><use xlink:href="#icon-sq"></use></svg>'
+                    + '</p><p class="song-author"><svg class="icon icon-sq" aria-hidden="true"><use xlink:href="#icon-sq"></use></svg>'
                     + song.singer + '-' + song.album
                     + '</p><span class="playicon"><svg class="icon icon-play" aria-hidden="true"><use xlink:href="#icon-play"></use></svg></span></div></a></li>';
             if (song.category === 'hot') {
@@ -299,6 +305,8 @@ var $newSongs = $('ul.songs'),
     }, function (error) {
         console.log(error)
     });
+
 </script>
+<script src="./searchSongs.js"></script>
 </body>
 </html>

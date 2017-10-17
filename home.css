@@ -368,6 +368,7 @@ section.tabs .hot-tops .hot-band .hottime {
     width: 14px;
     height: 14px;
     right: 0;
+    display: none;
 }
 .search form input {
     border: 0;
@@ -422,3 +423,17 @@ section.tabs .hot-tops .hot-band .hottime {
     border-radius: 32px;
 }
 
+.bestMatch {
+    display: none;
+    padding: 8px 0 4px;
+}
+.bestMatch .title {
+    margin-left: 10px;
+    font-size: 12px;
+    line-height: 16px;
+    color: #666;
+}
+.bestMatch .no-result {
+    margin-left: 10px;
+    padding: 5px;
+}
