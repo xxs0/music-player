@@ -1,0 +1,160 @@
+body {position: relative;}
+.page-play {
+    position: relative;
+    height: 100vh;
+}
+.page-play:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url("//i.loli.net/2017/10/18/59e740f733e87.jpg") no-repeat center;
+    background-size: cover;
+    filter: blur(50px) brightness(0.5);
+    z-index: -1;
+}
+
+/*手柄区域CSS*/
+
+section.needle {
+    width: 84px;
+    height: 122px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -20px;
+    z-index: 10;
+    background: url("//i.loli.net/2017/10/18/59e74ff99bfdc.png") no-repeat center;
+    background-size: cover;
+}
+section.needle.needle-pause {
+    transform: rotateZ(-30deg);
+    transform-origin: 10% -2%;
+}
+
+/*黑胶播放器区域CSS*/
+
+section.disk {
+    padding-top: 63px;
+}
+section.disk .disk-wrap {
+    position: relative;
+}
+section.disk .disk-wrap .circle {
+    width: 248px;
+    height: 248px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+section.disk .disk-wrap .circle:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url("//i.loli.net/2017/10/18/59e74ff9d5949.png") no-repeat center;
+    background-size: cover;
+    z-index: 2;
+}
+section.disk .disk-wrap .circle:after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url("//i.loli.net/2017/10/18/59e74ff99e22a.png") no-repeat center;
+    background-size: cover;
+    z-index: 3;
+}
+section.disk .disk-wrap .circle img {
+    width: 150px;
+    height: 150px;
+}
+section.disk .disk-wrap .circle.playing>img,
+section.disk .disk-wrap .circle.playing:after{
+    animation: circling 5s infinite linear;
+}
+section.disk .disk-wrap .circle.playing.pause>img,
+section.disk .disk-wrap .circle.playing.pause:after {
+    animation-play-state: paused;
+}
+@keyframes circling {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
+section.disk .disk-wrap .playbutton {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -25px;
+    margin-top: -25px;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKgAAACoCAMAAABDlVWGAAABJlBMVEUAAAAAAAD////l5eX///9iYmKDg4Pn5+f///9YWFj////09PT////4+Pjt7e3///////9oaGhBQUH////////////////CwsIaGhr///8xMTEkJCT////7+/vp6en///////////////+srKyoqKienp58fHz////y8vKTk5P///8EBAT////////////////V1dW3t7f////////////////////v7++jo6N9fX3///////+UlJT////s7Oz////Nzc3///////+RkZGPj495eXkTExP////////29vb////k5OTPz882Njb////////////c3Nz///////9ycnJsbGz///9dXV3////////Q0ND///9QUFD///////////////////9FeiN6AAAAYXRSTlNmAP3c+oWT3ueB9vA19ealRId5EQbuurpu83RxD/nh05dfAquooo+M7JtzaSolE+vMspJ3Wj7w6KSQj6ucKeXNxLWnmpmObVYd8t3axXZRSt7TvbKLideCeSzHnn4V3Nh6YarbPAAABlRJREFUeNrU14lWEmEYh/GXcdj3HQTZRCkS913UNE2zbLd9Oc/930Q2LmVpwPAC03MD/M5835n/IC6dkqHnzcVoZvdkLp2HfHruZDcTXWw+DyVdOilAt6uNjI8782Ua1W2XjTShtdDSmzRdlH6zFKq5bKQBTS5H57gqXJrP1tsb7kShkBPJFQoJ90a7np0vhblqLrrc8R7oQ4vVPZOLIp8mp8flzsanJ59FuMjcqxZdHVKFxvYDWK1lPQXpooInu4ZVYD/m6pAWNLn0DSvvekJ6KLHuxerb0qyrQwrQViV/oZzKSc/lpi6sgUrLdSN16MyWARBcOBWbnS4EAYytj67r1KGtqMUseaSvPCWLGr14u+pDZysmwFhc+i4+BmBWZgcATTXTFvO9qOS3qOlmShu68g7A6xa13F6A7yuq0ORnA9jZENU2dgDjc1IPGvMB4QNR7+AJ4IspQVObBjDmF+Wur6qxmdKAbpeBoEcGlCcIlLf7hx7lOzxOlYeaP+oTmmoYQFsGWhswGql+oMUMEInLgItHgEzRPvS43OHYVY+/fGwXGvIBkzKU6oAvZA8aywOPZEg9AvIxO9AXAZg4lKF1OAGBF71DX5jw5EyG2NkTMJ/3Co2ZcM8tQ819D8xYb9CVgA2nijSw0gs0tArBzk59aRBWQ91Dj30QjssIiofBd9wttFiGiTMZSWcTUC52B629Bg5lRB0Cr2tdQRvAfRlZ94FGN9AjA+oywupgHHWGzuRhTEbaGORnOkFTZYj4ZaT5I1BOdYBuAnEZcXFg89/QmAFtGXltMGL/ghZ9I7+g19fUV/wHtAJBvzggfxAqd0NXDPCII/KAsXIXNPXOIQd/efjvUndAmxB2xMH/zB+G5u3Qr2k4EMd0AOmvt0IrsCMOagcqt0FbJkyLg5oGs3ULNApecVReiP4NnTHALY7KDcbHv6BbDno1XTUGW39CWwa8F4flB6P1B3TRgQ/UeqSLN6GzAQd83f1dHAKzN6AfoCQOrARLN6Andr9GpiITT9/KwPLAye/QGATFTusAxsOCDKogxH6D7sOC2GkNq+B9GVALsP8LWgzAqdjJ4LJXCRlIpxAoXkOrtteT6yYmH8gg8kL1GroHU/1CoTSQBZ6CvSto0oRc/1DM7GNRLwdm8hK6DF5RgMI9j6jnheVLaBTWdaAwPy7KrUP0Alqbg4QWlPCU6JaAuZoFDcGaqEHh6RdRLQIhC/oBsppQzAXVN1UWlixoBjyqUIhozr8H3vyE1lYhpwnVnv8CpH9CZyAi2lAIPtK8pDPn0Cp8UoWqz/8zqJ5DGzCpCdWf/0lonEMzMK0J1Z//acicQ30wrgnVn/9x8LkkCWFRherPfxiSEgKvLlR//r0QkmWY14Xqz/88LEsTsqpQ/fm3RlQWoa4L1Z//OixKFNq6UP35vw9RycDGMKAYD3P9vEhlF9y6UP35d8OuvISELlR//hPwUqxh0oTqz781TbIKueFB4em4rb/Mq5IfMpRn0nOPIS+ADBUatvcz/w/0B/X2VgMACMNQ9AMnWOADKwT/QuahyZYcDcte7e146X9W+vFmWmEzOeOJGfjMCmWOEubMYw7no7wizHPHvMuMAMFIOo5IxsiOjJDLSOOM2cDYN44hxliMjGnL2OAOWMCgGgz84uBEDKDFIG8ORLhzLPO2Y5kK6PpMdJiBsR28nQkMOBEMJtTixISY4JUTZWPCgVXevesgCINhGG7dZPLEIg7GRRsMTsaoMTEOnmLUuBgn+e//JuTHGt0aKT3y3QIFpj6vO9ctnbnAmr9PIysefn0E0PfhkjW92HFtnQHULn5AAG9aISZGF3NaQYxVrInRrcVYBW4H5vkPEPIfuIV5UGXhClHT8Qv9oXQ/MckoTfb+wVTGqK8ZUl9+4mmUnpGj03pOmzlH5y/w5w6ZiAil+G9qA0KpkfWMTxKsJ6530wel3try9CwjSscg27BTDcw321gHjzyuEjj9IbwP1hPeDqHo2abP0pn5XMR/NhTB/fyo2gv3q0gh1JSkEHCrUuMSG1VxCdxDOtfR1ZDr4AGUwIUACi5JJZMyx1RHUgY3kIn0LBuFQk2EFlv7J3t0+id7JPi86wlJsfm9FUVbQrZR1LrPmQ0hKZfSXC7Fzr5LeD7uGoYBQBCGV56PS2g5ewGy+NkUNbjr9gAAAABJRU5ErkJggg==") no-repeat center;
+    background-size: cover;
+}
+
+/*歌词区域CSS*/
+
+section.lyric-wrap{
+    margin-top: 25px;
+}
+section.lyric-wrap .lyric-title{
+    font-size:15px;
+    line-height: 1.1;
+    color: #fefefe;
+    overflow: hidden;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+section.lyric-wrap .lyric-info {
+    font-size:13px;
+    line-height: 1.5;
+    height: 63px;
+    margin-top:14px;
+    overflow: hidden;
+}
+
+/*底部区域CSS*/
+
+section.footer-wrap {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 20px;
+}
+section.footer-wrap .footer-button{
+    display: flex;
+    padding: 0 35px;
+    max-width: 320px;
+    margin: 0 auto;
+    text-align: center;
+}
+section.footer-wrap .footer-button span {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 15px;
+    line-height: 1;
+    border: 1px solid #d43b32;
+    border-radius: 4px;
+}
+section.footer-wrap .footer-button span.open {
+    color: #d43b32;
+}
+section.footer-wrap .footer-button span.download {
+    margin-left: 12px;
+    color: #fff;
+    background-color: #d43b32;
+}
