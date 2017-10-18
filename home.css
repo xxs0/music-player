@@ -437,3 +437,18 @@ section.tabs .hot-tops .hot-band .hottime {
     margin-left: 10px;
     padding: 5px;
 }
+.bestMatch .searchResult {
+    margin: 10px 0 0 10px;
+}
+.bestMatch .searchResult li {
+    padding: 6px 0;
+}
+.bestMatch .searchResult li div {
+    position: relative;
+}
+.bestMatch .searchResult a.playicon {
+    position: absolute;
+    top:50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
