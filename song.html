@@ -11,17 +11,19 @@
 </head>
 <body>
 <div class="page-play">
+    <div class="page-wrap">
+    </div>
     <section class="needle"></section>
     <section class="disk">
         <div class="disk-wrap">
             <div class="circle playing">
-                <img src="//i.loli.net/2017/10/18/59e740f733e87.jpg" alt="">
+                <img id="songCover" src="" alt="">
             </div>
-            <span class="playbutton"></span>
+            <span class="playbutton" id="playButton"></span>
         </div>
     </section>
     <section class="lyric-wrap">
-        <h2 class="lyric-title">简单点</h2>
+        <h2 class="lyric-title">开发中～～</h2>
         <div class="lyric-info"></div>
     </section>
     <section class="footer-wrap">
@@ -30,7 +32,13 @@
             <span class="download">下 载</span>
         </div>
     </section>
+    <audio id="songSrc" src="" autoplay loop></audio>
 </div>
+
 <script src="//at.alicdn.com/t/font_441811_6wxq28s22sgiudi.js"></script>
+<script src="vendors/jquery.min.js"></script>
+<script src="vendors/av-min.js"></script>
+<script src="./av.js"></script>
+<script src="./play.js"></script>
 </body>
 </html>

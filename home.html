@@ -116,8 +116,8 @@
                 <div></div>
                 <div></div>
             </div>
-            <!--<li>-->
-            <!--<div>-->
+            <!--<li class="new-song-item">-->
+            <!--<a href="/song.html">-->
             <!--<h3 class="song-name">一生所爱</h3>-->
             <!--<p class="song-author">-->
             <!--<svg class="icon icon-sq" aria-hidden="true">-->
@@ -125,12 +125,12 @@
             <!--</svg>-->
             <!--莫文蔚 - 天籟 - Studio Version-->
             <!--</p>-->
-            <!--<a href="" class="playicon">-->
+            <!--<span class="playicon">-->
             <!--<svg class="icon icon-play" aria-hidden="true">-->
             <!--<use xlink:href="#icon-play"></use>-->
             <!--</svg>-->
+            <!--</span>-->
             <!--</a>-->
-            <!--</div>-->
             <!--</li>-->
         </ul>
         <footer>
@@ -186,23 +186,23 @@
                 <div></div>
             </div>
             <!--<li class="song-item">-->
-            <!--<a href="#">-->
-            <!--<div class="hot-index">01</div>-->
-            <!--<div class="song-info">-->
-            <!--<p class="song-name">一生所爱</p>-->
-            <!--<p class="song-author">-->
-            <!--<svg class="icon icon-sq" aria-hidden="true">-->
-            <!--<use xlink:href="#icon-sq"></use>-->
-            <!--</svg>-->
-            <!--莫文蔚 - 天籟 - Studio Version-->
-            <!--</p>-->
-            <!--<span class="playicon">-->
-            <!--<svg class="icon icon-play" aria-hidden="true">-->
-            <!--<use xlink:href="#icon-play"></use>-->
-            <!--</svg>-->
-            <!--</span>-->
-            <!--</div>-->
-            <!--</a>-->
+                <!--<a href="/song.html">-->
+                    <!--<div class="hot-index">01</div>-->
+                    <!--<div class="song-info">-->
+                        <!--<p class="song-name">一生所爱</p>-->
+                        <!--<p class="song-author">-->
+                            <!--<svg class="icon icon-sq" aria-hidden="true">-->
+                                <!--<use xlink:href="#icon-sq"></use>-->
+                            <!--</svg>-->
+                            <!--莫文蔚 - 天籟 - Studio Version-->
+                        <!--</p>-->
+                        <!--<span class="playicon">-->
+                            <!--<svg class="icon icon-play" aria-hidden="true">-->
+                                <!--<use xlink:href="#icon-play"></use>-->
+                            <!--</svg>-->
+                        <!--</span>-->
+                    <!--</div>-->
+                <!--</a>-->
             <!--</li>-->
         </ol>
         <div class="hotmore">
@@ -240,7 +240,6 @@
         <div class="bestMatch">
             <h3 class="title">最佳匹配</h3>
             <ul class="searchResult">
-
             </ul>
         </div>
     </div>
@@ -248,6 +247,7 @@
 <script src="vendors/jquery.min.js"></script>
 <script src="vendors/av-min.js"></script>
 <script src="//at.alicdn.com/t/font_441811_6wxq28s22sgiudi.js"></script>
+<script src="./av.js"></script>
 <script>
     var $tab = $('.global-tabslist>ul'),
         $tabItem = $('.tabs>div');
@@ -258,13 +258,6 @@
         $tabItem.eq(index).show().siblings().hide()
     })
 
-    var APP_ID = 'FAJiplyOufNOXB2g99xL3DTU-gzGzoHsz';
-    var APP_KEY = 'sQkUW7anDbCfAyqDzVeL7F0N';
-
-    AV.init({
-        appId: APP_ID,
-        appKey: APP_KEY
-    });
     var $newSongs = $('ul.songs'),
         $topSongs = $('ol.top-list'),
         index = 1,
@@ -275,14 +268,19 @@
         console.log(results)
         for (var i = 0; i < results.length; i++) {
             var song = results[i].attributes,
+                id = results[i].id,
                 newSongTemplate =
-                    '<li><div><h3 class="song-name">'
+                    '<li class="new-song-item"><a href="/song.html?id='
+                    + id
+                    + '"><h3 class="song-name">'
                     + song.name
                     + '</h3><p class="song-author"><svg class="icon icon-sq" aria-hidden="true"><use xlink:href="#icon-sq"></use></svg>'
                     + song.singer + '-' + song.album
-                    + '</p><a href="" class="playicon"><svg class="icon icon-play" aria-hidden="true"><use xlink:href="#icon-play"></use></svg></a></div></li>',
+                    + '</p><span class="playicon"><svg class="icon icon-play" aria-hidden="true"><use xlink:href="#icon-play"></use></svg></span></a></li>',
                 topSongTemplate =
-                    '<li class="song-item"><a href="#"><div class="hot-index">'
+                    '<li class="song-item"><a href="/song.html?id='
+                    + id
+                    + '"><div class="hot-index">'
                     + olIndex
                     + '</div><div class="song-info"><p class="song-name">'
                     + song.name

@@ -33,11 +33,13 @@ $('#search').on('input change', function (e) {
             for (var i = 0; i < result.length; i++) {
                 var song = result[i].attributes,
                     newSongTemplate =
-                        '<li><div><h3 class="song-name">'
+                        '<li><a href="/song.html?id='
+                        + result[i].id
+                        + '"><h3 class="song-name">'
                         + song.name
                         + '</h3><p class="song-author"><svg class="icon icon-sq" aria-hidden="true"><use xlink:href="#icon-sq"></use></svg>'
                         + song.singer + '-' + song.album
-                        + '</p><a href="" class="playicon"><svg class="icon icon-play" aria-hidden="true"><use xlink:href="#icon-play"></use></svg></a></div></li>';
+                        + '</p><span class="playicon"><svg class="icon icon-play" aria-hidden="true"><use xlink:href="#icon-play"></use></svg></span></a></li>';
                 $searchResult.append(newSongTemplate)
             }
         }

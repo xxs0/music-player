@@ -177,11 +177,12 @@ section.tabs .recommend-music ul.songs-list li p {
 .top-list .line-scale-party>div {
     background-color: #d43c33;
 }
-.songs li {
+.songs .new-song-item {
+    display: block;
     padding: 10px 0;
     position: relative;
 }
-.songs li:after {
+.songs .new-song-item:after {
     content: '';
     display: block;
     position: absolute;
@@ -191,17 +192,18 @@ section.tabs .recommend-music ul.songs-list li p {
     height: 1px;
     background-color: rgba(0, 0, 0, .1);
 }
-.songs div {
+.songs .new-song-item>a {
     position: relative;
+    display: block;
 }
-.songs div .song-name {
+.songs .new-song-item>a .song-name {
     font-size:17px;
 }
-.songs div .song-author {
+.songs .new-song-item>a .song-author {
     font-size:12px;
     color: #888888;
 }
-.songs div .playicon {
+.songs .new-song-item>a .playicon {
     position: absolute;
     top: 50%;
     right: 10px;
@@ -443,10 +445,11 @@ section.tabs .hot-tops .hot-band .hottime {
 .bestMatch .searchResult li {
     padding: 6px 0;
 }
-.bestMatch .searchResult li div {
+.bestMatch .searchResult li a {
     position: relative;
+    display: block;
 }
-.bestMatch .searchResult a.playicon {
+.bestMatch .searchResult span.playicon {
     position: absolute;
     top:50%;
     right: 10px;
