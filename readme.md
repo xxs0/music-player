@@ -1,9 +1,11 @@
 # 网易云音乐移动端
 
 描述：这是一个仿官方的网易云音乐手机Web端
+
 Description:This is an unoffical 'music.163.com' pages.
 
 ##预览链接 ( Preview Pages )
+
 <img src="qr.png" alt="qr" style="width: 200px;"/>
 
 https://xxs0.github.io/music-player/home.html
