@@ -1,4 +1,4 @@
-body {position: relative;}
+body {position: relative; background: #999999}
 .page-play {
     position: relative;
     height: 100vh;
@@ -10,8 +10,6 @@ body {position: relative;}
     position: absolute;
     top: 0;
     left: 0;
-    background: url("//i.loli.net/2017/10/18/59e740f733e87.jpg") no-repeat center;
-    background-size: cover;
     filter: blur(50px) brightness(0.5);
     z-index: -1;
 }

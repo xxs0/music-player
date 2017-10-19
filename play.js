@@ -30,6 +30,7 @@ $(function () {
     $('#songSrc').on('canplay', function () {
         console.log('缓存完成')
         $('#songSrc').trigger('play')
+        $('.circle').addClass('playing')
         $('.icon-wrap').addClass('playing')
     })
 
