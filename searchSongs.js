@@ -33,7 +33,7 @@ $('#search').on('input change', function (e) {
             for (var i = 0; i < result.length; i++) {
                 var song = result[i].attributes,
                     newSongTemplate =
-                        '<li><a href="/song.html?id='
+                        '<li><a href="./song.html?id='
                         + result[i].id
                         + '"><h3 class="song-name">'
                         + song.name
