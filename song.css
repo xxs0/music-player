@@ -86,6 +86,7 @@ section.disk .disk-wrap .circle.playing:after{
 section.disk .disk-wrap .circle.playing.pause>img,
 section.disk .disk-wrap .circle.playing.pause:after {
     animation-play-state: paused;
+    -webkit-animation: none !important;
 }
 @keyframes circling {
     0% {

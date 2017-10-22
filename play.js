@@ -1,6 +1,7 @@
 $(function () {
     let id = getSongIdByName('id'),
-        query = new AV.Query('Songs');
+        query = new AV.Query('Songs'),
+        $lyricLine = $('.lyric-lines');
 
     function getSongIdByName(name, url) {
         if (!url) url = window.location.href;
@@ -16,14 +17,45 @@ $(function () {
         $('.circle').toggleClass('play pause')
         $('.needle').toggleClass('needle-pause')
     }
+    
+    function parseLyric(lyric) {
+        console.log(lyric)
+        let lyrics = lyric.split('\n'),
+            regex = /^\[(.+)\](.*)$/,
+            array = [];
+        console.log(lyrics)
+        lyrics.forEach(function (key, index) {
+            let matchs = key.match(regex)
+            if (matchs && matchs[1] !== '') {
+                array.push({
+                    time: matchs[0],
+                    lyric: matchs[1]
+                })
+            }
+        })
+        console.log(array)
+        array.forEach(function (key) {
+            let $p = $('p');
+            if (!key) {return}
+            $p.attr('data-time', key.time).text(key.lyric)
+        })
+        $lyricLine.append($p)
+    }
 
     query.get(id).then(function (result) {
         var song = result.attributes,
-            titleContent = song.name + song.singer + '-网易云音乐';
+            titleContent = song.name + '-' + song.singer + '-网易云音乐';
+        console.log(song)
         $('title').html(titleContent);
         $("#songCover").attr('src', song.cover);
         $('.page-wrap').css('background', `url(${song.cover}) no-repeat center`)
         $('#songSrc').attr('src', song.url);
+        $('.song-name').text(song.name)
+        $('.song-space').text('-')
+        $('.song-singer').text(song.singer)
+        console.log("准备歌词")
+        // parseLyric(song.lyric)
+        console.log('完毕')
         // $('#songSrc').trigger('play')
     })
 
@@ -43,5 +75,9 @@ $(function () {
         $('#songSrc').trigger('play')
         $('.icon-wrap').addClass('playing')
         musicPauseAnimation()
+    })
+
+    $('html').one('touchstart', function () {
+        $('#songSrc').trigger('play')
     })
 })
