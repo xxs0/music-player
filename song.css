@@ -147,20 +147,29 @@ section.lyric-wrap{
 section.lyric-wrap .lyric-title{
     font-size:15px;
     line-height: 1.1;
+    padding: 0 35px;
     color: #fefefe;
     overflow: hidden;
     text-align: center;
-    white-space: nowrap;
     text-overflow: ellipsis;
 }
 section.lyric-wrap .lyric-info {
     font-size:13px;
     line-height: 1.5;
-    height: 63px;
+    height: 74px;
     margin-top:14px;
     overflow: hidden;
 }
-
+section.lyric-wrap .lyric-info .lyric-lines {
+    padding: 0 35px;
+    text-align: center;
+}
+.lyric-lines p {
+    color: rgba(255,255,255,.6);
+}
+.lyric-lines p.active {
+    color: #fff;
+}
 /*底部区域CSS*/
 
 section.footer-wrap {

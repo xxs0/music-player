@@ -17,34 +17,52 @@ $(function () {
         $('.circle').toggleClass('play pause')
         $('.needle').toggleClass('needle-pause')
     }
-    
+
     function parseLyric(lyric) {
-        console.log(lyric)
-        let lyrics = lyric.split('\n'),
+        let lyrics = lyric.split('\\n'),
             regex = /^\[(.+)\](.*)$/,
             array = [];
-        console.log(lyrics)
-        lyrics.forEach(function (key, index) {
+        lyrics.forEach(function (key) {
             let matchs = key.match(regex)
-            if (matchs && matchs[1] !== '') {
+            if (matchs && matchs[2] !== '') {
+                let time = matchs[1].match(/(\d+):([\d.]+)/),
+                    minute = +time[1],
+                    second = +time[2];
                 array.push({
-                    time: matchs[0],
-                    lyric: matchs[1]
+                    time: minute * 60 + second,
+                    lyric: matchs[2]
                 })
             }
         })
-        console.log(array)
         array.forEach(function (key) {
-            let $p = $('p');
+            let $p = $('<p></p>');
             if (!key) {return}
             $p.attr('data-time', key.time).text(key.lyric)
+            $lyricLine.append($p)
         })
-        $lyricLine.append($p)
+        setInterval(function () {
+            let currentTime = $('#songSrc').get(0).currentTime,
+                $lines = $('.lyric-lines > p'),
+                $currentLine;
+            for (var i = 0; i <array.length; i++) {
+                if ($lines.eq(1).length !== 0 && currentTime >= array[i].time && currentTime < array[i+1].time) {
+                    $currentLine = $lines.eq(i)
+                }
+            }
+            if ($currentLine) {
+                let top = $currentLine.offset().top,
+                    lyricWrapperTop = $lyricLine.offset().top,
+                    moveupHeight = Math.floor(top - lyricWrapperTop - $('.lyric-wrap').height() / 3);
+                $currentLine.addClass('active').prev().removeClass('active')
+                $lyricLine.css('transform', `translateY(-${moveupHeight}px)`)
+            }
+        }, 500)
     }
 
     query.get(id).then(function (result) {
         var song = result.attributes,
             titleContent = song.name + '-' + song.singer + '-网易云音乐';
+        string = result.attributes
         console.log(song)
         $('title').html(titleContent);
         $("#songCover").attr('src', song.cover);
@@ -53,10 +71,7 @@ $(function () {
         $('.song-name').text(song.name)
         $('.song-space').text('-')
         $('.song-singer').text(song.singer)
-        console.log("准备歌词")
-        // parseLyric(song.lyric)
-        console.log('完毕')
-        // $('#songSrc').trigger('play')
+        parseLyric(song.lyric)
     })
 
     $('#songSrc').on('canplay', function () {
@@ -80,4 +95,5 @@ $(function () {
     $('html').one('touchstart', function () {
         $('#songSrc').trigger('play')
     })
+
 })
