@@ -1,13 +1,52 @@
 var $searchResult = $('ul.searchResult');
-$('#search').on('input change', function (e) {
-    $('label.holder').hide()
-    $('.hot-suggestion').hide()
-    $('#clearSearch').show()
-    $('.bestMatch').show()
+let timer = null
+
+$('#search').on('input', function (e) {
+    prepareSearch()
     $searchResult.empty()
     let $input = $(e.currentTarget),
         value = $input.val();
-    console.log(value)
+    if (value === '') {
+        clearResult()
+        return
+    }
+    throttling(400, value, function () {
+        searching(value).then(renderResult)
+    })
+
+})
+
+$('#clearSearch').on('click', function (e) {
+    $('#search').val('').focus()
+    $searchResult.html('')
+    clearResult()
+})
+
+$('.suggestion').on('click', 'li', function (e) {
+    let value = e.currentTarget.innerText.trim()
+    prepareSearch()
+    if (value !== '') {
+        $('#search').val(value)
+        throttling(400, value, function () {
+            searching(value).then(renderResult)
+        })
+    }
+})
+
+// 函数截流
+function throttling(time, value, fn) {
+    if (timer) {
+        window.clearTimeout(timer)
+    }
+    timer = setTimeout(function () {
+        console.log('实践')
+        timer = null
+        fn(value)
+    }, time)
+}
+
+// 搜索歌曲
+function searching(value) {
     var nameQuery = new AV.Query('Songs');
     nameQuery.contains('name', value);
 
@@ -18,39 +57,39 @@ $('#search').on('input change', function (e) {
     albumQuery.contains('album', value);
 
     var query = AV.Query.or(nameQuery, singerQuery, albumQuery);
-    if (value === '') {
-        $('label.holder').show()
-        $('.hot-suggestion').show()
-        $('#clearSearch').hide()
-        $('.bestMatch').hide()
-        return
-    }
-    query.find().then(function (result) {
-        console.log(result)
-        if (result.length === 0) {
-            $searchResult.append('<p class="no-result">暂时没有搜索结果</p>')
-        } else {
-            for (var i = 0; i < result.length; i++) {
-                var song = result[i].attributes,
-                    newSongTemplate =
-                        '<li><a href="./song.html?id='
-                        + result[i].id
-                        + '"><h3 class="song-name">'
-                        + song.name
-                        + '</h3><p class="song-author"><svg class="icon icon-sq" aria-hidden="true"><use xlink:href="#icon-sq"></use></svg>'
-                        + song.singer + '-' + song.album
-                        + '</p><span class="playicon"><svg class="icon icon-play" aria-hidden="true"><use xlink:href="#icon-play"></use></svg></span></a></li>';
-                $searchResult.append(newSongTemplate)
-            }
-        }
-    })
-})
+    return query.find()
+}
 
-$('#clearSearch').on('click', function (e) {
-    console.log(1)
-    $('#search').val('').focus()
-    $(this).hide()
+// 渲染数据
+function renderResult(result) {
+    if (result.length === 0) {
+        $searchResult.append('<p class="no-result">暂时没有搜索结果</p>')
+    } else {
+        for (var i = 0; i < result.length; i++) {
+            var song = result[i].attributes,
+                newSongTemplate =
+                    '<li><a href="./song.html?id='
+                    + result[i].id
+                    + '"><h3 class="song-name">'
+                    + song.name
+                    + '</h3><p class="song-author"><svg class="icon icon-sq" aria-hidden="true"><use xlink:href="#icon-sq"></use></svg>'
+                    + song.singer + '-' + song.album
+                    + '</p><span class="playicon"><svg class="icon icon-play" aria-hidden="true"><use xlink:href="#icon-play"></use></svg></span></a></li>';
+            $searchResult.append(newSongTemplate)
+        }
+    }
+}
+
+function clearResult() {
     $('label.holder').show()
     $('.hot-suggestion').show()
-    $searchResult.html('')
-})
+    $('#clearSearch').hide()
+    $('.bestMatch').hide()
+}
+
+function prepareSearch() {
+    $('label.holder').hide()
+    $('.hot-suggestion').hide()
+    $('#clearSearch').show()
+    $('.bestMatch').show()
+}

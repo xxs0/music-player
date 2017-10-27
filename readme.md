@@ -21,7 +21,7 @@ https://xxs0.github.io/music-player/home.html
 - 搜索栏及搜索功能
 - 播放页面
 - 音乐播放器
-- 歌词播放(待完成)
+- 歌词播放
 
 ## 技术 ( Technologies )
 
@@ -31,8 +31,8 @@ https://xxs0.github.io/music-player/home.html
 
 ## 后续任务(Working)
 
-* 歌词播放
-* 搜索页面的优化
+* ~~歌词播放~~
+* ~~搜索页面的优化~~
 * 多设备下兼容性的处理
 * 代码重构、组织化
 
